@@ -13,12 +13,12 @@ namespace Zadatak_1.Validation
 
         public static bool Validate(Song song, int h, int m, int s)
         {
-            if (song.Title == null)
+            if (song.Title == "" || song.Title == null)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Invalid song title, please try again.", "Notification");
                 return false;
             }
-            else if (song.Author == null)
+            else if (song.Author == "" || song.Author == null)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Invalid song author, please try again.", "Notification");
                 return false;

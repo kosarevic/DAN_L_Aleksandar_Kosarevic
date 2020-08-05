@@ -27,8 +27,6 @@ namespace Zadatak_1
         {
             InitializeComponent();
             DataContext = uvm;
-            Title.Text = "";
-            Author.Text = "";
             Hours.Text = "0";
             Minutes.Text = "0";
             Seconds.Text = "0";
@@ -42,6 +40,9 @@ namespace Zadatak_1
                 {
                     uvm.Song.Length = new TimeSpan(int.Parse(Hours.Text),int.Parse(Minutes.Text),int.Parse(Seconds.Text));
                     uvm.CreateSong();
+                    UserWindow window = new UserWindow(LoginScreen.CurrentUser);
+                    window.Show();
+                    Close();
                 }
             }
             else
@@ -52,7 +53,9 @@ namespace Zadatak_1
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-
+            UserWindow window = new UserWindow(LoginScreen.CurrentUser);
+            window.Show();
+            Close();
         }
     }
 }
