@@ -23,5 +23,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Create Song" HorizontalAlignment="Left" Margin="298,361,0,0" VerticalAlignment="Top" Width="75" Click="Create_Song_Btn"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="415,361,0,0" VerticalAlignment="Top" Width="75" Click="Logout"/>
     </Grid>
 </Window>

@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Zadatak_1.Model;
 
 namespace Zadatak_1.ViewModel
@@ -33,6 +34,7 @@ namespace Zadatak_1.ViewModel
 
         public UserViewModel(User user)
         {
+            Song = new Song();
             FillList(user);
         }
 
@@ -78,6 +80,23 @@ namespace Zadatak_1.ViewModel
             con.Dispose();
             UserSongs.Remove(song);
             var messageBoxResult = System.Windows.MessageBox.Show("Delete Successfull", "Notification");
+        }
+
+        public void CreateSong()
+        {
+            //Order is inserted into database.
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
+            {
+                var cmd = new SqlCommand(@"insert into tblSong values (@Title, @Author, @Length, @UserID);", conn);
+                cmd.Parameters.AddWithValue("@Title", song.Title);
+                cmd.Parameters.AddWithValue("@Author", song.Author);
+                cmd.Parameters.AddWithValue("@Length", song.Length);
+                cmd.Parameters.AddWithValue("@UserId", LoginScreen.CurrentUser.Id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Song successfully created.", "Notification");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

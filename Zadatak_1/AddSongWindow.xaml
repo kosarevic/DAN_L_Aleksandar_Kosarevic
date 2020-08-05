@@ -1,0 +1,27 @@
+﻿<Window x:Class="Zadatak_1.AddSongWindow"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:Zadatak_1"
+        mc:Ignorable="d"
+        Title="AddSongWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="Title" Text="{Binding Song.Title, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="151,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Author" Text="{Binding Song.Author, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="315,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="193,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Length" HorizontalAlignment="Left" Margin="577,116,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Hours" HorizontalAlignment="Left" Height="23" Margin="540,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Minutes" HorizontalAlignment="Left" Height="23" Margin="540,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Seconds" HorizontalAlignment="Left" Height="23" Margin="540,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Author" HorizontalAlignment="Left" Margin="351,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hours" HorizontalAlignment="Left" Margin="473,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Minutes" HorizontalAlignment="Left" Margin="473,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seconds" HorizontalAlignment="Left" Margin="473,229,0,0" VerticalAlignment="Top"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="193,307,0,0" VerticalAlignment="Top" Width="75" Click="Create_Song"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="315,307,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
+
+    </Grid>
+</Window>

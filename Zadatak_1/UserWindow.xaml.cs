@@ -33,5 +33,19 @@ namespace Zadatak_1
         {
             uvm.DeleteSong();
         }
+
+        private void Create_Song_Btn(object sender, RoutedEventArgs e)
+        {
+            AddSongWindow window = new AddSongWindow();
+            window.Show();
+            Close();
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            LoginScreen login = new LoginScreen();
+            login.Show();
+            Close();
+        }
     }
 }
