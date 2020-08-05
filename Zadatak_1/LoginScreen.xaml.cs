@@ -28,8 +28,11 @@ namespace Zadatak_1
             InitializeComponent();
         }
 
+        public static User CurrentUser = new User();
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            CurrentUser = new User();
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
             try
             {
@@ -43,11 +46,11 @@ namespace Zadatak_1
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
 
-                User user = new User();
+                CurrentUser = new User();
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    user = new User
+                    CurrentUser = new User
                     {
                         Id = int.Parse(row[0].ToString()),
                         Username = row[1].ToString(),
@@ -55,9 +58,9 @@ namespace Zadatak_1
                     };
                 }
 
-                if (user != null)
+                if (CurrentUser != null)
                 {
-                    UserWindow window = new UserWindow(user);
+                    UserWindow window = new UserWindow(CurrentUser);
                     window.Show();
                     Close();
                     return;

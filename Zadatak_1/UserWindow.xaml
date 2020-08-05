@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Zadatak_1"
+        WindowStartupLocation="CenterScreen"
+        xmlns:local="clr-namespace:Zadatak_1.ViewModel"
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock TextAlignment="Center" Text="Song List" Foreground="#282828" Margin="298,20,302,360" HorizontalAlignment="Center" FontSize="25" Width="192"/>
+        <DataGrid x:Name="datagrid" ItemsSource="{Binding UserSongs}" AutoGenerateColumns="False" CanUserAddRows="False" Width="267" Margin="261,85,264,82" HorizontalAlignment="Center" SelectedItem="{Binding Song, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Length" Binding="{Binding Length}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Delete_Btn" Content="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

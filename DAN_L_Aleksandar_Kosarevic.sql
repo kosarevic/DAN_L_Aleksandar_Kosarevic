@@ -28,6 +28,8 @@ UserID int foreign key references tblUser(UserID) not null
 
 insert into tblUser values ('a','a');
 insert into tblSong values ('song 1', 'author 1', '00:01:00', 1);
+insert into tblSong values ('song 2', 'author 2', '00:02:00', 1);
+insert into tblSong values ('song 3', 'author 3', '00:03:00', 1);
 
 select * from tblSong;
 select * from tblUser;

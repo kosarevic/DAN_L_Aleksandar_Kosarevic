@@ -21,14 +21,17 @@ namespace Zadatak_1
     /// </summary>
     public partial class UserWindow : Window
     {
-        UserViewModel uvm = new UserViewModel(CurrentUser);
-        public static User CurrentUser = new User();
+        UserViewModel uvm = new UserViewModel(LoginScreen.CurrentUser);
 
         public UserWindow(User u)
         {
             InitializeComponent();
-            CurrentUser = u;
             DataContext = uvm;
+        }
+
+        private void Delete_Btn(object sender, RoutedEventArgs e)
+        {
+            uvm.DeleteSong();
         }
     }
 }

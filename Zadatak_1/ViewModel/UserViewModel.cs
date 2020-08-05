@@ -67,6 +67,19 @@ namespace Zadatak_1.ViewModel
             }
         }
 
+        public void DeleteSong()
+        {
+            var con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            con.Open();
+            var cmd = new SqlCommand("delete from tblSong where SongID = @SongID;", con);
+            cmd.Parameters.AddWithValue("@SongID", song.Id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            con.Dispose();
+            UserSongs.Remove(song);
+            var messageBoxResult = System.Windows.MessageBox.Show("Delete Successfull", "Notification");
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
