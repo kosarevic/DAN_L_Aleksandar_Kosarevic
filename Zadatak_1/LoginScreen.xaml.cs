@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zadatak_1.Model;
 
 namespace Zadatak_1
 {
@@ -41,6 +42,26 @@ namespace Zadatak_1
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
+
+                User user = new User();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    user = new User
+                    {
+                        Id = int.Parse(row[0].ToString()),
+                        Username = row[1].ToString(),
+                        Password = row[2].ToString()
+                    };
+                }
+
+                if (user != null)
+                {
+                    UserWindow window = new UserWindow(user);
+                    window.Show();
+                    Close();
+                    return;
+                }
             }
             catch (Exception ex)
             {

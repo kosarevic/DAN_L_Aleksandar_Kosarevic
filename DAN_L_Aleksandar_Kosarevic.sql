@@ -25,3 +25,9 @@ Author varchar(50),
 Length time,
 UserID int foreign key references tblUser(UserID) not null
 )
+
+insert into tblUser values ('a','a');
+insert into tblSong values ('song 1', 'author 1', '00:01:00', 1);
+
+select * from tblSong;
+select * from tblUser;
